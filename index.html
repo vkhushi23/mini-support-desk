@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Support Desk</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <h1>💻 Mini Support Desk</h1>
+      <button id="themeToggleBtn" class="btn btn-secondary">🌙 Dark Mode</button>
+    </header>
+
+    <!-- Dashboard Summary -->
+    <section class="dashboard">
+      <div class="card stat-card total">
+        <h3>Total Tickets</h3>
+        <p id="statTotal">0</p>
+      </div>
+      <div class="card stat-card open">
+        <h3>Open</h3>
+        <p id="statOpen">0</p>
+      </div>
+      <div class="card stat-card progress">
+        <h3>In Progress</h3>
+        <p id="statProgress">0</p>
+      </div>
+      <div class="card stat-card resolved">
+        <h3>Resolved</h3>
+        <p id="statResolved">0</p>
+      </div>
+    </section>
+
+    <!-- Create & Search Controls -->
+    <section class="main-controls">
+      <form id="ticketForm" class="ticket-form card">
+        <h2>Create New Ticket</h2>
+        <input type="text" id="titleInput" placeholder="Ticket Title" required>
+        <textarea id="descInput" placeholder="Problem Description" rows="3" required></textarea>
+        <div class="form-row">
+          <select id="priorityInput" required>
+            <option value="Low">Priority: Low</option>
+            <option value="Medium" selected>Priority: Medium</option>
+            <option value="High">Priority: High</option>
+          </select>
+          <button type="submit" class="btn btn-primary">Add Ticket</button>
+        </div>
+      </form>
+
+      <div class="filter-box card">
+        <h2>Search & Filter</h2>
+        <input type="text" id="searchInput" placeholder="Search by title or description...">
+        <div class="filter-row">
+          <select id="statusFilter">
+            <option value="All">All Statuses</option>
+            <option value="Open">Open</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Resolved">Resolved</option>
+          </select>
+          <select id="priorityFilter">
+            <option value="All">All Priorities</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tickets List -->
+    <section class="tickets-section">
+      <h2>Support Tickets</h2>
+      <div id="ticketsContainer" class="tickets-grid"></div>
+    </section>
+  </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div id="deleteModal" class="modal hidden">
+    <div class="modal-content card">
+      <h3>Confirm Delete</h3>
+      <p>Are you sure you want to delete this ticket?</p>
+      <div class="modal-actions">
+        <button id="cancelDeleteBtn" class="btn btn-secondary">Cancel</button>
+        <button id="confirmDeleteBtn" class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
